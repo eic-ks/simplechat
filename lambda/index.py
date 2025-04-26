@@ -32,10 +32,6 @@ def lambda_handler(event, context):
             "top_p": 0.9,
             "do_sample": True
         }
-        req = urllib.request.Request(
-            f"{NGROK_URL}/generate",
-            json=request_payload
-        )
         request_payload_json = json.dumps(request_payload).encode()
         req = urllib.request.Request(
             f"{NGROK_URL}/generate",
