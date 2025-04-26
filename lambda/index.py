@@ -6,7 +6,6 @@ import urllib.request
 
 def lambda_handler(event, context):
     try:
-        NGROK_URL = "https://your-ngrok-url.ngrok.url"
   
         # リクエストボディの解析
         body = json.loads(event['body'])

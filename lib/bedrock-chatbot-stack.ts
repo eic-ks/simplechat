@@ -158,6 +158,7 @@ export class BedrockChatbotStack extends cdk.Stack {
       role: lambdaRole,
       environment: {
         MODEL_ID: modelId,
+        NGROK_URL: "https://your-ngrok-url.ngrok.url",
       },
     });
 
