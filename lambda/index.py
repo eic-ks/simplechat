@@ -33,6 +33,7 @@ def lambda_handler(event, context):
             "do_sample": True
         }
         request_payload_json = json.dumps(request_payload).encode()
+        # 後でlambdaの環境変数NGROK_URLにngrokの公開URLをセットする
         url = os.environ['NGROK_URL']
         req = urllib.request.Request(
             f"{url}/generate",
