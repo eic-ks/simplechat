@@ -33,8 +33,9 @@ def lambda_handler(event, context):
             "do_sample": True
         }
         request_payload_json = json.dumps(request_payload).encode()
+        url = os.environ['NGROK_URL']
         req = urllib.request.Request(
-            f"{NGROK_URL}/generate",
+            f"{url}/generate",
             request_payload_json,
             headers={'Content-Type': 'application/json'}
         )
