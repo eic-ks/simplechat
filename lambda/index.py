@@ -46,14 +46,15 @@ def lambda_handler(event, context):
 
         # APIを呼び出し
         # レスポンスを解析
-        with urllib.request.urlopen(req) as response:
-          response_body = json.loads(response.read().decode('utf-8'))
+        try:
+            with urllib.request.urlopen(req) as response:
+              response_body = json.loads(response.read().decode('utf-8'))
         
-        # 応答の検証
-    except urllib.error.HTTPError as err:
-        print(err.code)
-    except urllib.error.URLError as err:
-        print(err.reason)
+        #応答の検証
+        except urllib.error.HTTPError as err:
+            print(err.code)
+        except urllib.error.URLError as err:
+            print(err.reason)
         
         # アシスタントの応答を取得
         assistant_response = response_body['generated_text']
